@@ -1,0 +1,6 @@
+model_checkpoint_path: "model.ckpt"
+all_model_checkpoint_paths: "D:\\New folder (3)\\deep\\1525551756\\checkpoints\\model-19600"
+all_model_checkpoint_paths: "D:\\New folder (3)\\deep\\1525551756\\checkpoints\\model-19700"
+all_model_checkpoint_paths: "D:\\New folder (3)\\deep\\1525551756\\checkpoints\\model-19800"
+all_model_checkpoint_paths: "D:\\New folder (3)\\deep\\1525551756\\checkpoints\\model-19900"
+all_model_checkpoint_paths: "model.ckpt"
