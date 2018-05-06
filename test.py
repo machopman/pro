@@ -195,6 +195,7 @@ def movie(event):
         with tf.Session(graph=graph) as sess:
             saver.restore(sess, 'model.ckpt')
             p = sess.run(tf.argmax(scores, 1), feed_dict={x: inputs2, keep_prob: 1.0})
+        print(p)
         classify = p
 
         user = mongo.db.users
