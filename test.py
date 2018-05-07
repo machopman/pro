@@ -205,7 +205,7 @@ def movie(event):
 
         name = re.sub('[กขฃคฅฆงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮฝฦใฬมฒท?ื์ิ.่๋้็เโ,ฯี๊ัํะำไๆ๙๘๗๖๕ึ฿ุู๔๓๒๑+ๅาแ]', '',
                       question).replace(' ', '')
-        movie_name = searchMovieNameInDic(question)
+        movie_name = searchMovieNameInDic(question)[0]
         if name != '' and classify != 9:  # คำถามมีชื่อหนัง
             Type(classify, event, movie_name, userid, user, question, name)
 
@@ -550,30 +550,32 @@ def Type(q, event, movie_name,userid,user,question,name):
                 )
             )
             line_bot_api.reply_message(event.reply_token, message)
-def  checkd(question):
-     name = searchMovieNameInDic(question)
-     sentence = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '', question).replace(' ', '')
-     if sentence !='' or name !='':
-         if name in question:
-             u = question.replace(name,'')
-             return u
-         if name not in question:
-             return sentence
-     if sentence =='' and name =='':
-          return  question
+def checkd(question):
+    name = searchMovieNameInDic(question)
+    sentence = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '', question).replace(' ', '')
+    if sentence != '' or name[0] != '':
+        if name[1] in question:
+            u = question.replace(name[1], '')
+            return u
+        if name[1] not in question:
+            return sentence
+    if sentence == '' and name[0] == '':
+        return question
 
 def searchMovieNameInDic(question):
     cut = mmcut(question)
     with open('new.txt', mode='r', encoding='utf-8-sig') as f:
         a = load(f)
         e = ''
+        q =''
         for key, value in a.items():
             for i in cut:
                 if i in value:
                     w = key.lower()
-                    u  =str(w)
-                    e = e+u
-        return e
+                    u = str(w)
+                    e = e + u
+                    q = q+i
+        return e ,i
 
 def checDic(question):
     cut = mmcut(question)
