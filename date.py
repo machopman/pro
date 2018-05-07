@@ -29,7 +29,7 @@ def movie_date(event,question,userid):
                     return 'ยังไม่ทราบวันฉายเลยครับ'
         if found == False:
             return 'ยังไม่ทราบวันฉายเลยครับ'
-    elif (movie_name == '') and (searchMovieNameInDic(question) == ''):
+    elif (movie_name == '') and (searchMovieNameInDic(question)[0] == ''):
         mov = findmovie(userid)
         movie_name = mov.lower().replace(' ','')
         URL = "http://mandm.plearnjai.com/API/id_nameMovie.php?key=mandm"
