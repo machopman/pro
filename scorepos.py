@@ -30,7 +30,7 @@ def movie_scorepos(event,question,userid):
                     return 'ยังไม่มีคะแนนด้านบวกครับ'
         if found == False:
             return 'ยังไม่มีคะแนนด้านบวกครับ'
-    elif (movie_name=='')and (searchMovieNameInDic(question)==''):
+    elif (movie_name=='')and (searchMovieNameInDic(question)[0]==''):
         mov = findmovie(userid)
         movie_name = mov.lower().replace(' ','')
         URL = "http://mandm.plearnjai.com/API/id_nameMovie.php?key=mandm"
