@@ -1,4 +1,4 @@
-
+from work import checkques
 import json
 import numpy as np
 import tensorflow as tf
@@ -68,7 +68,8 @@ def webhook():
 @handler.add(MessageEvent, message=TextMessage)
 def movie(event):
     question = event.message.text
-    movie = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '', question).replace(' ', '')
+    q = checkques(question)
+    movie = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '',q).replace(' ', '')
     cut = mmcut(movie)
     words = []
     for row in cut:
