@@ -553,7 +553,7 @@ def Type(q, event, movie_name,userid,user,question,name):
 def  checkd(question):
      name = searchMovieNameInDic(question)
      sentence = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '', question).replace(' ', '')
-     if sentence !='' and name !='':
+     if sentence !='' or name !='':
          if name in question:
              u = question.replace(name,'')
              return u
