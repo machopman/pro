@@ -68,8 +68,8 @@ def webhook():
 @handler.add(MessageEvent, message=TextMessage)
 def movie(event):
     question = event.message.text
-    q = checkques(question)
     movie = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '',q).replace(' ', '')
+    movie = checkques(movie)
     cut = mmcut(movie)
     words = []
     for row in cut:
