@@ -68,7 +68,7 @@ def webhook():
 @handler.add(MessageEvent, message=TextMessage)
 def movie(event):
     question = event.message.text
-    movie = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '',q).replace(' ', '')
+    movie = checkd(question)
     movie = checkques(movie)
     cut = mmcut(movie)
     words = []
@@ -550,7 +550,17 @@ def Type(q, event, movie_name,userid,user,question,name):
                 )
             )
             line_bot_api.reply_message(event.reply_token, message)
-
+def  checkd(question):
+     name = searchMovieNameInDic(question)
+     sentence = re.sub('[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890]', '', question).replace(' ', '')
+     if sentence !='' and name !='':
+         if name in question:
+             u = question.replace(name,'')
+             return u
+         if name not in question:
+             return sentence
+     if sentence =='' and name =='':
+          return  question
 
 def searchMovieNameInDic(question):
     cut = mmcut(question)
