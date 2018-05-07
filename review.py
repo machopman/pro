@@ -36,7 +36,7 @@ def movie_review(event,question,userid):
         if found == False:
             return 'ยังไม่ได้รีวิวหนังเรื่องนี้เลยครับ'
 
-    elif (movie_name=='')and (searchMovieNameInDic(question)==''):
+    elif (movie_name=='')and (searchMovieNameInDic(question)[0]==''):
         mov = findmovie(userid)
         movie_name = mov.lower().replace(' ','')
         URL = "http://mandm.plearnjai.com/API/id_nameMovie.php?key=mandm"
