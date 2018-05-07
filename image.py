@@ -20,7 +20,7 @@ def movie_image(event,question,userid):
                 found = True
                 return  "https://imagemovie.herokuapp.com/"+movie['idIMDb']+'.jpg'
 
-    elif (movie_name=='')and (searchMovieNameInDic(question)==''):
+    elif (movie_name=='')and (searchMovieNameInDic(question)[0]==''):
         mov = findmovie(userid)
         movie_name = mov.lower().replace(' ','')
         URL = "http://mandm.plearnjai.com/API/id_nameMovie.php?key=mandm"
