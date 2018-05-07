@@ -36,7 +36,7 @@ def movie_spoil(event,question,userid):
                     return 'ยังไม่ทราบส่วนสำคัญเรื่องนี้เลยครับ'
         if found == False:
             return 'ยังไม่ทราบตอนจบเรื่องนี้เลยครับ'
-    elif (movie_name=='')and (searchMovieNameInDic(question)==''):
+    elif (movie_name=='')and (searchMovieNameInDic(question)[0]==''):
         mov = findmovie(userid)
         movie_name = mov.lower().replace(' ','')
         URL = "http://mandm.plearnjai.com/API/id_nameMovie.php?key=mandm"
